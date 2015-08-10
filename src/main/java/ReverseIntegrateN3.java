@@ -20,7 +20,7 @@ import org.apache.jena.vocabulary.RDF;
 public class ReverseIntegrateN3 {
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
 		String outputPath = "/Users/eugene/Downloads/knoesis_observations_map/";
 		File folder = new File(folderPath);
 		
@@ -30,10 +30,13 @@ public class ReverseIntegrateN3 {
 		for(File file:folder.listFiles()) {
 			try {
 				String tempFileName = file.getName();
-				String[] parts = tempFileName.split("_");
-				if(!doneStations.contains(parts[0])) {
-					doneStations.add(parts[0]);
-					String filename = parts[0] + ".nt";
+				if(tempFileName.startsWith("."))
+					continue;
+//				String[] parts = tempFileName.split("_");
+				String stationName = tempFileName.replace(".n3", "");
+				if(!doneStations.contains(stationName)) {
+					doneStations.add(stationName);
+					String filename = stationName + ".nt";
 					BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + filename));
 					
 					// create an empty model
@@ -56,7 +59,7 @@ public class ReverseIntegrateN3 {
 						String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT DISTINCT ?class ?prop ?uom where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:result [om-owl:uom ?uom].}" ;
 						QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
 						ResultSet results = qexec.execSelect() ;
-						Resource sensor = outModel.createResource("http://knoesis.wright.edu/ssw/System_"+parts[0]);
+						Resource sensor = outModel.createResource("http://knoesis.wright.edu/ssw/System_"+stationName);
 						while(results.hasNext()) {
 							QuerySolution soln = results.nextSolution() ;
 							Resource obs = outModel.createResource();
@@ -68,13 +71,14 @@ public class ReverseIntegrateN3 {
 							outModel.add(obs,RDF.type,soln.getResource("class"));
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),result);
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),sensor);
+							outModel.add(sensor,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),obs);
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),soln.getResource("prop"));
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),instant);
 							outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData"));
-							outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createLiteral(parts[0]+"."+propName));
+							outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createLiteral("_"+stationName+"."+propName));
 							outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),soln.get("uom"));
 							outModel.add(instant,RDF.type,outModel.createResource("http://www.w3.org/2006/time#Instant"));
-							outModel.add(instant,outModel.createProperty("http://www.w3.org/2006/time#inXSDDateTime"),outModel.createLiteral(parts[0]+".time"));
+							outModel.add(instant,outModel.createProperty("http://www.w3.org/2006/time#inXSDDateTime"),outModel.createLiteral("_"+stationName+".time"));
 						}
 						outModel.write(bw,"N-TRIPLES");
 						
