@@ -10,6 +10,7 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
@@ -22,18 +23,22 @@ import org.joda.time.format.DateTimeFormatter;
 public class ReverseMapN3 {
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
 		String outputPath = "/Users/eugene/Downloads/knoesis_observations_csv/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;
 		
 		for(File file:folder.listFiles()) {
-			try {
+			try {				
 				Boolean isNewFile = false;
 				String tempFileName = file.getName();
-				String[] parts = tempFileName.split("_");
-				String filename = parts[0] + ".csv";
+				if(tempFileName.startsWith("."))
+					continue;
+//				String[] parts = tempFileName.split("_");
+				
+				String filename = tempFileName.replace(".n3", "") + ".csv";
+//				String filename = "ALDM8.csv";
 				File newFile = new File(outputPath + filename); 
 				if(!newFile.exists()){
 					newFile.createNewFile();
@@ -47,6 +52,7 @@ public class ReverseMapN3 {
 	
 				 // use the FileManager to find the input file
 				 String inputName = file.getPath();
+//				 String inputName = folderPath + "ALDM8_2003_4_1.n3";
 				 if(inputName.endsWith(".n3")) {
 					 InputStream in = FileManager.get().open( inputName );
 					 
@@ -58,7 +64,7 @@ public class ReverseMapN3 {
 					// read the RDF/XML file
 					model.read(in, null, "N3");
 	//				String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT (group_concat(?prop) as ?propall) where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:samplingTime ?instant.} GROUP BY ?instant" ;				
-					String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT DISTINCT ?class ?prop where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop.}" ;
+					String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT DISTINCT ?class ?prop ?resultClass where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:result [a ?resultClass].}" ;
 					QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
 					ResultSet results = qexec.execSelect() ;
 					List<String> propNames = new ArrayList<String>();
@@ -69,9 +75,17 @@ public class ReverseMapN3 {
 						QuerySolution soln = results.nextSolution() ;
 	//					observations.add(soln.get("class").toString());
 						String prop = soln.get("prop").toString();
-						propNames.add(prop.replace("http://knoesis.wright.edu/ssw/ont/weather.owl#_", ""));
-						selectExtra += "?val"+count+" ?uom"+count+" ";
-						whereExtra += "?obs"+count+" om-owl:samplingTime ?instant; a <"+soln.get("class").toString()+">; om-owl:observedProperty <"+prop+">; om-owl:result ?result"+count+". ?result"+count+" a om-owl:MeasureData ; om-owl:floatValue ?val"+count+"; om-owl:uom ?uom"+count+".\n";
+						String resultClass = soln.get("resultClass").toString().replace("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#","");
+						if(resultClass.equals("MeasureData")) {
+							propNames.add(prop.replace("http://knoesis.wright.edu/ssw/ont/weather.owl#_", ""));
+							selectExtra += "?val"+count+" ?uom"+count+" ";
+							whereExtra += "OPTIONAL { ?obs"+count+" om-owl:samplingTime ?instant; a <"+soln.get("class").toString()+">; om-owl:observedProperty <"+prop+">; om-owl:result ?result"+count+". ?result"+count+" om-owl:floatValue ?val"+count+"; om-owl:uom ?uom"+count+".}\n";
+						} else if(resultClass.equals("TruthData")) {
+							propNames.add(prop.replace("http://knoesis.wright.edu/ssw/ont/weather.owl#_", "")+"_bool");
+							selectExtra += "?val"+count+" ";
+							whereExtra += "OPTIONAL { ?obs"+count+" om-owl:samplingTime ?instant; a <"+soln.get("class").toString()+">; om-owl:observedProperty <"+prop+">; om-owl:result ?result"+count+". ?result"+count+" om-owl:booleanValue ?val"+count+".}\n";
+						}
+//						System.out.println(soln.get("resultClass"));
 						count++;
 					}
 					queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#>\n"
@@ -89,13 +103,22 @@ public class ReverseMapN3 {
 					}
 					while(results.hasNext()) {
 						QuerySolution soln = results.nextSolution() ;
+//						System.out.println(soln);
 						String time = soln.getLiteral("time").getValue().toString().replace("^^http://www.w3.org/2001/XMLSchema#dateTime", ""); //theres a mistake storing this as a string instead of datetime in the LSD data
 //						bw.append(time);
 						DateTime dt = new DateTime(time,DateTimeZone.UTC);
 						DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
 						bw.append(dt.toString(dtf)); 
 						for(int i=0;i<count;i++) {
-							bw.append(","+soln.getLiteral("val"+i).getFloat());
+							if(soln.contains("val"+i)) {
+								Literal val = soln.getLiteral("val"+i);
+								if(val.getDatatypeURI().equals("http://www.w3.org/2001/XMLSchema#float"))
+									bw.append(","+val.getFloat());
+								else
+									bw.append(","+val.getString().replace("^^http://www.w3.org/2001/XMLSchema#boolean",""));
+							} else {
+								bw.append(",");
+							}
 						}
 						bw.append("\n");
 					}
