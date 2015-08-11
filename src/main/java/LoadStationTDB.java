@@ -10,7 +10,7 @@ import org.apache.jena.tdb.sys.SystemTDB;
 public class LoadStationTDB {
 
 	public static void main(String[] args) {		
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
         if(args.length>0) {
         	folderPath = args[0];
 		}

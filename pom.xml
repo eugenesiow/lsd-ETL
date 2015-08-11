@@ -25,9 +25,9 @@
 		<version>2.4</version>
 	</dependency>
 	<dependency>
-	  <groupId>org.apache.jena</groupId>
-	  <artifactId>jena-jdbc-driver-tdb</artifactId>
-	  <version>3.0.0</version>
+		<groupId>org.apache.jena</groupId>
+		<artifactId>jena-jdbc-driver-remote</artifactId>
+		<version>3.0.0</version>
 	</dependency>
   </dependencies>
 </project>
