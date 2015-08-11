@@ -16,31 +16,38 @@ import org.apache.jena.jdbc.remote.RemoteEndpointDriver;
 
 public class TestTDBQuery {
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_results/lists/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_results/lists/";
 		String queryPath = "/Users/eugene/Dropbox/Private/WORK/LinkedSensorData/queries/";
 		String outputPath = "/Users/eugene/Downloads/knoesis_results/";
 		
-		String listNumber = "5";
+//		String listNumber = "5";
 		for(int run = 1;run<=3;run++) {
 	
 			try {
 				String queryName = "q1";
 				String queryStr = FileUtils.readFileToString(new File(queryPath + queryName + ".sparql"));
 				
-				BufferedReader br = new BufferedReader(new FileReader(folderPath + "stations"+listNumber+".txt"));
+//				BufferedReader br = new BufferedReader(new FileReader(folderPath + "stations"+listNumber+".txt"));
 				
 				int totalCount = 0;
-				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_"+listNumber+"_run"+run+".csv"));
+//				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_"+listNumber+"_run"+run+".csv"));
+				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_run"+run+".csv"));
 				
 				RemoteEndpointDriver.register();
-				
-				String line = "";
-				while((line=br.readLine())!=null) {
-					String stationName = line.trim();
+				File folder = new File(folderPath);
+//				String line = "";
+//				while((line=br.readLine())!=null) {
+				for(File file:folder.listFiles()) {
+					String tempFileName = file.getName();
+					if(tempFileName.startsWith("."))
+						continue;
+					String stationName = tempFileName.replace(".n3", "");
+//					String stationName = line.trim();
 					
 					long startTime = System.currentTimeMillis();
 //					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://192.168.0.103:3030/"+stationName+"/sparql");
-					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://localhost:8080/"+stationName);
+					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://192.168.0.103:8080/"+stationName);
 					
 					// Need a statement
 					Statement stmt = conn.createStatement();
@@ -51,7 +58,7 @@ public class TestTDBQuery {
 		
 					  // Iterate over results
 					  while (rs.next()) {
-	//					  System.out.println(rs.getString(1));
+//						  System.out.println(rs.getString(1));
 					    totalCount++;
 					  }
 		
@@ -59,6 +66,7 @@ public class TestTDBQuery {
 					  rs.close();
 					} catch (SQLException e) {
 					  System.err.println("SQL Error - " + e.getMessage());
+//					  e.printStackTrace();
 					} finally {
 					  stmt.close();
 					}
@@ -69,7 +77,7 @@ public class TestTDBQuery {
 				}
 				System.out.println(totalCount);
 				
-				br.close();
+//				br.close();
 				bw.close();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
