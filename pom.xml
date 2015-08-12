@@ -29,5 +29,10 @@
 		<artifactId>jena-jdbc-driver-remote</artifactId>
 		<version>3.0.0</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-csv</artifactId>
+	    <version>1.1</version>
+	</dependency>
   </dependencies>
 </project>

@@ -1,8 +1,6 @@
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
 import org.apache.jena.jdbc.remote.RemoteEndpointDriver;
 
@@ -23,14 +23,15 @@ public class TestTDBQuery {
 		
 //		String listNumber = "5";
 		for(int run = 1;run<=3;run++) {
+			System.out.println("run "+run);
 	
 			try {
-				String queryName = "q1";
+				String queryName = "q4";
 				String queryStr = FileUtils.readFileToString(new File(queryPath + queryName + ".sparql"));
 				
 //				BufferedReader br = new BufferedReader(new FileReader(folderPath + "stations"+listNumber+".txt"));
 				
-				int totalCount = 0;
+//				int totalCount = 0;
 //				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_"+listNumber+"_run"+run+".csv"));
 				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_run"+run+".csv"));
 				
@@ -44,6 +45,7 @@ public class TestTDBQuery {
 						continue;
 					String stationName = tempFileName.replace(".n3", "");
 //					String stationName = line.trim();
+					BufferedWriter bwResults = new BufferedWriter(new FileWriter(outputPath + "/results/tdb_"+queryName+"_run"+run+"_"+stationName+".csv"));
 					
 					long startTime = System.currentTimeMillis();
 //					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://192.168.0.103:3030/"+stationName+"/sparql");
@@ -57,13 +59,18 @@ public class TestTDBQuery {
 					  ResultSet rs = stmt.executeQuery(queryStr);
 		
 					  // Iterate over results
-					  while (rs.next()) {
-//						  System.out.println(rs.getString(1));
-					    totalCount++;
-					  }
+//					  while (rs.next()) {
+////						  System.out.println(rs.getString(1));
+//						  totalCount++;
+//					  }
+					  
+					  CSVPrinter printer = new CSVPrinter(bwResults,CSVFormat.DEFAULT);
+					  printer.printRecords(rs);
 		
 					  // Clean up
+					  printer.close();
 					  rs.close();
+					  bwResults.close();
 					} catch (SQLException e) {
 					  System.err.println("SQL Error - " + e.getMessage());
 //					  e.printStackTrace();
@@ -75,7 +82,7 @@ public class TestTDBQuery {
 					bw.append(stationName + "," + executionTime + "\n");
 					bw.flush();
 				}
-				System.out.println(totalCount);
+//				System.out.println(totalCount);
 				
 //				br.close();
 				bw.close();
