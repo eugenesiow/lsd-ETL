@@ -26,7 +26,7 @@ public class TestTDBQuery {
 			System.out.println("run "+run);
 	
 			try {
-				String queryName = "q7";
+				String queryName = "q5";
 				String queryStr = FileUtils.readFileToString(new File(queryPath + queryName + ".sparql"));
 				
 //				BufferedReader br = new BufferedReader(new FileReader(folderPath + "stations"+listNumber+".txt"));

@@ -15,8 +15,8 @@ import org.joda.time.format.DateTimeFormatter;
 
 public class FixDateTime {
 	public static void main(String[] a) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_fix/";
 		
 		File folder = new File(folderPath);
 		

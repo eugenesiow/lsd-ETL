@@ -23,8 +23,10 @@ import org.joda.time.format.DateTimeFormatter;
 public class ReverseMapN3 {
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_csv/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged_nafix/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_csv/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_csv/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;
@@ -37,7 +39,8 @@ public class ReverseMapN3 {
 					continue;
 //				String[] parts = tempFileName.split("_");
 				
-				String filename = tempFileName.replace(".n3", "") + ".csv";
+				String filename = tempFileName.replace(".n3.bak", "") + ".csv";
+//				String filename = tempFileName.replace(".n3", "") + ".csv";
 //				String filename = "ALDM8.csv";
 				File newFile = new File(outputPath + filename); 
 				if(!newFile.exists()){
@@ -53,7 +56,8 @@ public class ReverseMapN3 {
 				 // use the FileManager to find the input file
 				 String inputName = file.getPath();
 //				 String inputName = folderPath + "ALDM8_2003_4_1.n3";
-				 if(inputName.endsWith(".n3")) {
+				 if(inputName.endsWith(".n3.bak")) {
+//				 if(inputName.endsWith(".n3")) {
 					 InputStream in = FileManager.get().open( inputName );
 					 
 					 if (in == null) {
@@ -122,17 +126,19 @@ public class ReverseMapN3 {
 						}
 						bw.append("\n");
 					}
-					System.out.println(totalCount++);
+					totalCount++;
 					
 				 }
 				 bw.flush();
 				 bw.close();
 				 
 				 model.close();
+				 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		System.out.println(totalCount);
 	}
 
 }

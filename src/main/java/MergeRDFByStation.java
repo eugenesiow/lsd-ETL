@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class MergeRDFByStation {
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
+		String folderPath = "/Users/eugene/Downloads/rdf 2/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;

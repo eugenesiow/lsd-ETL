@@ -10,7 +10,8 @@ import org.apache.jena.tdb.sys.SystemTDB;
 public class LoadStationTDB {
 
 	public static void main(String[] args) {		
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
         if(args.length>0) {
         	folderPath = args[0];
 		}
@@ -24,7 +25,7 @@ public class LoadStationTDB {
 			String stationName = tempFileName.replace(".n3", "");
 			
 			SystemTDB.setFileMode(FileMode.direct);
-			Dataset ds=TDBFactory.createDataset("/Users/eugene/LSD_TDB_databases/"+stationName);
+			Dataset ds=TDBFactory.createDataset("/Users/eugene/LSD_TDB_databases_ike/"+stationName);
 			TDBLoader.loadModel(ds.getDefaultModel(), file.getPath(), false);
 //			StmtIterator it = ds.getDefaultModel().listStatements();
 //			while(it.hasNext()) {
@@ -39,3 +40,4 @@ public class LoadStationTDB {
 	}
 
 }
+

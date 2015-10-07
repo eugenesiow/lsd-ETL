@@ -60,11 +60,11 @@ public class ReverseIntegrateN3 {
 						QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
 						ResultSet results = qexec.execSelect() ;
 						Resource sensor = outModel.createResource("http://knoesis.wright.edu/ssw/System_"+stationName);
+						Resource instant = outModel.createResource();
 						while(results.hasNext()) {
 							QuerySolution soln = results.nextSolution() ;
 							Resource obs = outModel.createResource();
 							Resource result = outModel.createResource();
-							Resource instant = outModel.createResource();
 							String propName = soln.getResource("prop").toString().replace("http://knoesis.wright.edu/ssw/ont/weather.owl#_", "");
 							
 							//add ssn structure
@@ -82,27 +82,6 @@ public class ReverseIntegrateN3 {
 						}
 						outModel.write(bw,"N-TRIPLES");
 						
-//						@prefix om-owl:  <http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> .
-//							@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-//							@prefix sens-obs:  <http://knoesis.wright.edu/ssw/> .
-//							@prefix owl-time:  <http://www.w3.org/2006/time#> .
-//							@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-//							@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
-//							@prefix weather:  <http://knoesis.wright.edu/ssw/ont/weather.owl#> .
-//							@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-//						
-//						sens-obs:MeasureData_WindDirection_4UT01_2003_3_31_15_55_00
-//					      a       om-owl:MeasureData ;
-//					      om-owl:floatValue "112.0"^^xsd:float ;
-//					      om-owl:uom weather:degrees .
-//
-//					sens-obs:Observation_WindDirection_4UT01_2003_3_31_4_50_00
-//					      a       weather:WindDirectionObservation ;
-//					      om-owl:observedProperty
-//					              weather:_WindDirection ;
-//					      om-owl:procedure sens-obs:System_4UT01 ;
-//					      om-owl:result sens-obs:MeasureData_WindDirection_4UT01_2003_3_31_4_50_00 ;
-//					      om-owl:samplingTime sens-obs:Instant_2003_3_31_4_50_00 .
 						
 						 bw.flush();
 						 bw.close();
