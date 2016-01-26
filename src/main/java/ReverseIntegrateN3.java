@@ -20,8 +20,10 @@ import org.apache.jena.vocabulary.RDF;
 public class ReverseIntegrateN3 {
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_map/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_map/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
 		File folder = new File(folderPath);
 		
 		List<String> doneStations = new ArrayList<String>();

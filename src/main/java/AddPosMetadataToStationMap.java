@@ -25,8 +25,10 @@ public class AddPosMetadataToStationMap {
 					metadata.put(parts[0], parts[1]+","+parts[2]+","+parts[3]+","+parts[4]+","+parts[5]);
 			}
 			br.close();
-			String folderPath = "/Users/eugene/Downloads/knoesis_observations_map/";
-			String outputPath = "/Users/eugene/Downloads/knoesis_observations_map_meta/";
+//			String folderPath = "/Users/eugene/Downloads/knoesis_observations_map/";
+			String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
+//			String outputPath = "/Users/eugene/Downloads/knoesis_observations_map_meta/";
+			String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map_meta/";
 			File folder = new File(folderPath);
 			for(File file:folder.listFiles()) {
 				String inputName = file.getPath();
