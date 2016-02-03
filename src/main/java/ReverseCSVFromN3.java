@@ -20,12 +20,13 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
 
-public class ReverseMapN3 {
+public class ReverseCSVFromN3 {
 
-	public static void main(String[] args) {
+	public static int run(String folderPath, String outputPath) {
+//	public static void main(String[] args) {
 //		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged_nafix/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_csv/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged_nafix/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_csv/";
 //		String outputPath = "/Users/eugene/Downloads/knoesis_observations_csv/";
 		File folder = new File(folderPath);
 		
@@ -138,7 +139,8 @@ public class ReverseMapN3 {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(totalCount);
+//		System.out.println(totalCount);
+		return totalCount;
 	}
 
 }

@@ -7,9 +7,10 @@ import java.io.IOException;
 
 
 public class MergeRDFByStation {
-	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/rdf 2/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+	public static int run(String folderPath, String outputPath) {
+//	public static void main(String[] args) {
+//		String folderPath = "/Users/eugene/Downloads/rdf 2/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;
@@ -49,6 +50,7 @@ public class MergeRDFByStation {
 			}
 		}
 		
-		System.out.println(totalCount);
+//		System.out.println(totalCount);
+		return totalCount;
 	}
 }

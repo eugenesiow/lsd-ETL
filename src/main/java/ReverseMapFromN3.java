@@ -17,13 +17,14 @@ import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 
 
-public class ReverseIntegrateN3 {
+public class ReverseMapFromN3 {
 
-	public static void main(String[] args) {
+	public static int run(String folderPath,String outputPath) {
+//	public static void main(String[] args) {
 //		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
 //		String outputPath = "/Users/eugene/Downloads/knoesis_observations_map/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
 		File folder = new File(folderPath);
 		
 		List<String> doneStations = new ArrayList<String>();
@@ -84,6 +85,8 @@ public class ReverseIntegrateN3 {
 						}
 						outModel.write(bw,"N-TRIPLES");
 						
+						totalCount++;
+						
 						
 						 bw.flush();
 						 bw.close();
@@ -95,7 +98,9 @@ public class ReverseIntegrateN3 {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			
 		}
+		return totalCount;
 	}
 
 }
