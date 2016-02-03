@@ -9,14 +9,15 @@ import org.apache.jena.tdb.sys.SystemTDB;
 
 public class LoadStationTDB {
 
-	public static void main(String[] args) {		
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+//	public static void main(String[] args) {
+	public static int run(String folderPath,String outputPath) {
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
 //		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
-        if(args.length>0) {
-        	folderPath = args[0];
-		}
+//        if(args.length>0) {
+//        	folderPath = args[0];
+//		}
 		File folder = new File(folderPath);
-		int totalCount = 1;
+		int totalCount = 0;
 		
 		for(File file:folder.listFiles()) {
 			String tempFileName = file.getName();
@@ -25,7 +26,8 @@ public class LoadStationTDB {
 			String stationName = tempFileName.replace(".n3", "");
 			
 			SystemTDB.setFileMode(FileMode.direct);
-			Dataset ds=TDBFactory.createDataset("/Users/eugene/LSD_TDB_databases_ike/"+stationName);
+//			Dataset ds=TDBFactory.createDataset("/Users/eugene/LSD_TDB_databases_ike/"+stationName);
+			Dataset ds=TDBFactory.createDataset(outputPath+stationName);
 			TDBLoader.loadModel(ds.getDefaultModel(), file.getPath(), false);
 //			StmtIterator it = ds.getDefaultModel().listStatements();
 //			while(it.hasNext()) {
@@ -36,7 +38,8 @@ public class LoadStationTDB {
 			ds.close();
 			totalCount++;
 		}
-		System.out.println(totalCount);
+//		System.out.println(totalCount);
+		return totalCount;
 	}
 
 }

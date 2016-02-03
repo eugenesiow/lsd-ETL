@@ -19,11 +19,11 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
 
 
-public class RevereseMetadata {
+public class ReverseMetadata {
 
-	public static void main(String[] args) {
-		String folderPath = "D:\\Documents\\Programming\\knoesis_metadata";
-		String outputPath = "D:\\Documents\\Programming\\knoesis_metadata_csv\\";
+	public static int run(String folderPath, String outputPath) {
+//		String folderPath = "D:\\Documents\\Programming\\knoesis_metadata";
+//		String outputPath = "D:\\Documents\\Programming\\knoesis_metadata_csv\\";
 		File folder = new File(folderPath);
 		Map<String,List<String>> geonames = new HashMap<String,List<String>>(); 
 		
@@ -112,6 +112,8 @@ public class RevereseMetadata {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return totalCount;
 	}
 
 }

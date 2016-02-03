@@ -13,9 +13,12 @@ import org.apache.jena.vocabulary.RDF;
 
 
 public class AddPosMetadataToStationMap {
-	public static void main(String[] args) {
+	public static int run(String folderPath, String outputPath, String metadataPath) {
+//	public static void main(String[] args) {
+		int totalCount = 0;
 		try {
-			String metadataPath = "/Users/eugene/Dropbox/Private/WORK/LinkedSensorData/knoesis_metadata_csv/sensors.csv";
+			
+//			String metadataPath = "/Users/eugene/Dropbox/Private/WORK/LinkedSensorData/knoesis_metadata_csv/sensors.csv";
 			Map<String,String> metadata = new HashMap<String,String>();
 			BufferedReader br = new BufferedReader(new FileReader(metadataPath));
 			String line="";
@@ -26,9 +29,9 @@ public class AddPosMetadataToStationMap {
 			}
 			br.close();
 //			String folderPath = "/Users/eugene/Downloads/knoesis_observations_map/";
-			String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
+//			String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_map/";
 //			String outputPath = "/Users/eugene/Downloads/knoesis_observations_map_meta/";
-			String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map_meta/";
+//			String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_map_meta/";
 			File folder = new File(folderPath);
 			for(File file:folder.listFiles()) {
 				String inputName = file.getPath();
@@ -68,10 +71,14 @@ public class AddPosMetadataToStationMap {
 //						System.out.println("missing:"+stationName);
 //					}
 					
+					totalCount++;
+					
 				}
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		return totalCount;
 	}
 }
