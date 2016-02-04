@@ -134,6 +134,7 @@ public class LoadStation {
 			      br.close();
 			       conn.close();
 				}
+				totalCount++;
 	//	       System.out.println(totalCount++);
 		        
 		//        System.out.println((System.currentTimeMillis() - startTime));

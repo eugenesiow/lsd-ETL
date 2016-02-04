@@ -17,7 +17,7 @@ public class AddPosMetadataToStationMap {
 //	public static void main(String[] args) {
 		int totalCount = 0;
 		try {
-			
+			metadataPath += "/sensors.csv";
 //			String metadataPath = "/Users/eugene/Dropbox/Private/WORK/LinkedSensorData/knoesis_metadata_csv/sensors.csv";
 			Map<String,String> metadata = new HashMap<String,String>();
 			BufferedReader br = new BufferedReader(new FileReader(metadataPath));

@@ -80,7 +80,7 @@ public class ReverseMetadata {
 	//						?id ?alt ?lat ?lon ?distance ?location
 							bw.append(id + "," + alt + "," + lat + "," + lon + "," + distance + "," + location + "\n");
 							bw.flush();
-							System.out.println(totalCount);
+//							System.out.println(totalCount);
 							List<String> stationList = null;
 							if(geonames.containsKey(location)) {
 								stationList = geonames.get(location);

@@ -1,0 +1,1 @@
+java -jar ETL-0.1.0.jar -I /Users/eugene/Downloads/rdf3/ -O /Users/eugene/Downloads/knoesis_output_charley/ -M /Users/eugene/Downloads/knoesis_linkedsensordata_rdf -D org.h2.Driver -J jdbc:h2: -U sa -P "" 

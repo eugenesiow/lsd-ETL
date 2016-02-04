@@ -103,14 +103,16 @@ public class LSDTransform {
 		options.addOption(passOpt);
 		
 		//test data
-		args = new String[]{ "-I /users/", "-O /users/out", "-M /users/meta", "-D org.h2.Driver", "-J jdbc:h2:", "-U sa", "-P " };
+//		args = new String[]{ "-I /users/", "-O /users/out", "-M /users/meta", "-D org.h2.Driver", "-J jdbc:h2:", "-U sa", "-P " };
 		
 		try {
 			CommandLineParser parser = new DefaultParser();
 			CommandLine cmd = parser.parse(options, args);
 			
+			int runStage = 0;
+			
 			if( cmd.hasOption( "S" ) ) {
-		        System.out.println( cmd.getOptionValue( "S" ) );
+		        runStage = Integer.parseInt(cmd.getOptionValue( "S" ));
 		    }
 		    
 		    String inputPath = cmd.getOptionValue( "I" );
@@ -140,30 +142,41 @@ public class LSDTransform {
 		    outputPath = outputPath.endsWith(File.separator) ? outputPath : outputPath + File.separator;
 		    String tempOutputPath = outputPath + "_rdf_merged/";
 		    
-		    
-		    PrintStatus(stages.get(0),MergeRDFByStation.run(inputPath, tempOutputPath));
-		    inputPath = tempOutputPath;
-		    
-		    tempOutputPath = outputPath + "_map/";
-		    PrintStatus(stages.get(1),ReverseMapFromN3.run(inputPath, tempOutputPath));
-		    inputPath = tempOutputPath;
-		    
-		    tempOutputPath = outputPath + "_csv/";
-		    PrintStatus(stages.get(2),ReverseCSVFromN3.run(inputPath, tempOutputPath));
-		    inputPath = tempOutputPath;
-		    
-		    if(metadataPath!=null) {
-		    	PrintStatus(stages.get(3),ReverseMetadata.run(metadataPath, outputPath + "_metadata/"));
+		    if(runStage==0 || runStage==1) {
+			    PrintStatus(stages.get(0),MergeRDFByStation.run(inputPath, mkdir(tempOutputPath)));
+			    inputPath = tempOutputPath;
 		    }
 		    
-		    tempOutputPath = outputPath + "_map_meta/";
-		    PrintStatus(stages.get(4),AddPosMetadataToStationMap.run(inputPath, tempOutputPath, outputPath + "_metadata/"));
+		    if(runStage==0 || runStage==2) {
+			    tempOutputPath = outputPath + "_map/";
+			    PrintStatus(stages.get(1),ReverseMapFromN3.run(inputPath, mkdir(tempOutputPath)));
+			    inputPath = tempOutputPath;
+		    }
 		    
-		    PrintStatus(stages.get(5),LoadStation.run(inputPath, driverStr, jdbc, outputPath + "_rdbms/", user, pass));
+		    if(runStage==0 || runStage==3) {
+			    tempOutputPath = outputPath + "_csv/";
+			    PrintStatus(stages.get(2),ReverseCSVFromN3.run(inputPath, mkdir(tempOutputPath)));
+			    inputPath = tempOutputPath;
+		    }
 		    
-		    tempOutputPath = outputPath + "_tdb/";
-		    PrintStatus(stages.get(6),LoadStationTDB.run(inputPath, tempOutputPath));
+		    if(runStage==0 || runStage==4) {
+			    if(metadataPath!=null) {
+			    	PrintStatus(stages.get(3),ReverseMetadata.run(metadataPath, mkdir(outputPath + "_metadata/")));
+			    }
+		    }
 		    
+		    if(runStage==0 || runStage==5) {
+			    tempOutputPath = outputPath + "_map_meta/";
+			    PrintStatus(stages.get(4),AddPosMetadataToStationMap.run(inputPath, mkdir(tempOutputPath), mkdir(outputPath + "_metadata/")));
+		    }
+		    
+		    if(runStage==0 || runStage==6)
+		    	PrintStatus(stages.get(5),LoadStation.run(inputPath, driverStr, jdbc, mkdir(outputPath + "_rdbms/"), user, pass));
+		    
+		    if(runStage==0 || runStage==7) {
+			    tempOutputPath = outputPath + "_tdb/";
+			    PrintStatus(stages.get(6),LoadStationTDB.run(inputPath, mkdir(tempOutputPath)));
+		    }
 			
 		} catch (ParseException e) {
 			System.err.println(e.getMessage());
@@ -172,8 +185,16 @@ public class LSDTransform {
 		}
 	}
 	
+	private static String mkdir(String outputPath) {
+		File file = new File(outputPath);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
+		return outputPath;
+	}
+
 	public static void PrintStatus(String stage, int count) {
-		System.out.println(stage + " was completed on" + count + "stations.");
+		System.out.println(stage + " was completed on" + count + " stations.");
 	}
 
 }
