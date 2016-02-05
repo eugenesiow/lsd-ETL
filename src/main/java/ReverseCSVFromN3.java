@@ -32,6 +32,7 @@ public class ReverseCSVFromN3 {
 		
 		int totalCount = 1;
 		
+//		System.out.println(folderPath);
 		for(File file:folder.listFiles()) {
 			try {				
 				Boolean isNewFile = false;
@@ -40,8 +41,8 @@ public class ReverseCSVFromN3 {
 					continue;
 //				String[] parts = tempFileName.split("_");
 				
-				String filename = tempFileName.replace(".n3.bak", "") + ".csv";
-//				String filename = tempFileName.replace(".n3", "") + ".csv";
+//				String filename = tempFileName.replace(".n3.bak", "") + ".csv";
+				String filename = tempFileName.replace(".n3", "") + ".csv";
 //				String filename = "ALDM8.csv";
 				File newFile = new File(outputPath + filename); 
 				if(!newFile.exists()){
@@ -57,8 +58,8 @@ public class ReverseCSVFromN3 {
 				 // use the FileManager to find the input file
 				 String inputName = file.getPath();
 //				 String inputName = folderPath + "ALDM8_2003_4_1.n3";
-				 if(inputName.endsWith(".n3.bak")) {
-//				 if(inputName.endsWith(".n3")) {
+//				 if(inputName.endsWith(".n3.bak")) {
+				 if(inputName.endsWith(".n3")) {
 					 InputStream in = FileManager.get().open( inputName );
 					 
 					 if (in == null) {
