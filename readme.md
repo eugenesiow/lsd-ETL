@@ -7,6 +7,29 @@
 5. Run the `run.sh` script in the LSD-ETL directory. You might have to `chmod 775 run.sh` to make it executable.
 6. All required files will be produced in the output directory specified. Now you have a `_rdbms` subdirectory and a `_tdb` subdirectory with the database outputs in a RDBMS and triplestore.
 
+### Usage
+
+```
+usage: LSDTransform [-D <driver>] -I <folder path> [-J <the jdbc string>]
+       [-M <folder path>] -O <folder path> [-P <password>] [-S <stage
+       number>] [-U <username>]
+ -D,--jdbc_driver <driver>            the JDBC driver package
+ -I,--src <folder path>               the source folder path
+ -J,--jdbc_string <the jdbc string>   the jdbc path
+ -M,--metadata_src <folder path>      the metadata folder path
+ -O,--output <folder path>            the output folder path
+ -P,--password <password>             the db password
+ -S,--stage <stage number>            runs the particular stage
+                                      1.Merge RDF by station
+                                      2.Metadata to CSV from RDF
+                                      3.Generate Mapping from RDF
+                                      4.Add Metadata to Mappings
+                                      5.Generate CSV from RDF
+                                      6.Load RDBMS
+                                      7.Load TDB
+ -U,--user <username>                 the db user
+```
+
 ### Other Projects
 * [sparql2sql](https://github.com/eugenesiow/sparql2sql)
 * [sparql2stream](https://github.com/eugenesiow/sparql2stream)
