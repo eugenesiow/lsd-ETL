@@ -59,7 +59,16 @@ public class ReverseMapFromN3 {
 						// read the RDF/XML file
 						model.read(in, null, "N3");
 		//				String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT (group_concat(?prop) as ?propall) where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:samplingTime ?instant.} GROUP BY ?instant" ;				
-						String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT DISTINCT ?class ?prop ?uom where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:result [om-owl:uom ?uom].}" ;
+//						String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> SELECT DISTINCT ?class ?prop ?uom where {?obs om-owl:procedure ?sensor;a ?class; om-owl:observedProperty ?prop; om-owl:result [om-owl:uom ?uom].}" ;
+						String queryString = "PREFIX om-owl:<http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#> "
+								+ "SELECT DISTINCT ?class ?prop ?uom "
+								+ "where {"
+								+ "	?obs om-owl:procedure ?sensor;"
+								+ "		a ?class; "
+								+ "		om-owl:observedProperty ?prop; "
+								+ "		om-owl:result ?result."
+								+ "	OPTIONAL {?result om-owl:uom ?uom}"
+								+ "}" ;
 						QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
 						ResultSet results = qexec.execSelect() ;
 						Resource sensor = outModel.createResource("http://knoesis.wright.edu/ssw/System_"+stationName);
@@ -77,9 +86,14 @@ public class ReverseMapFromN3 {
 							outModel.add(sensor,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),obs);
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),soln.getResource("prop"));
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),instant);
-							outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData"));
-							outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createLiteral("_"+stationName+"."+propName));
-							outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),soln.get("uom"));
+							if(soln.get("uom")!=null) {
+								outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData"));
+								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createLiteral("_"+stationName+"."+propName));
+								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),soln.get("uom"));
+							} else {
+								outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthData"));
+								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#booleanValue"),outModel.createLiteral("_"+stationName+"."+propName));
+							}
 							outModel.add(instant,RDF.type,outModel.createResource("http://www.w3.org/2006/time#Instant"));
 							outModel.add(instant,outModel.createProperty("http://www.w3.org/2006/time#inXSDDateTime"),outModel.createLiteral("_"+stationName+".time"));
 						}
