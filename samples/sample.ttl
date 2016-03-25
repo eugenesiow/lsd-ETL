@@ -1,0 +1,29 @@
+#
+# Sesame configuration template for a owlim repository
+#
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rep: <http://www.openrdf.org/config/repository#>.
+@prefix sr: <http://www.openrdf.org/config/repository/sail#>.
+@prefix sail: <http://www.openrdf.org/config/sail#>.
+@prefix owlim: <http://www.ontotext.com/trree/owlim#>.
+
+[] a rep:Repository ;
+   rep:repositoryID "StationName" ;
+   rdfs:label "Station StationName" ;
+   rep:repositoryImpl [
+      rep:repositoryType "openrdf:SailRepository" ;
+      sr:sailImpl [
+         sail:sailType "owlim:Sail" ;
+       	 owlim:repository-type "file-repository" ;
+         owlim:ruleset "owl-horst-optimized" ; 
+         owlim:entity-index-size "2000000" ; 
+         owlim:entity-id-size "32" ;
+         owlim:cache-memory "80m" ; 
+         owlim:noPersist "false" ;
+         owlim:storage-folder "repositories/StationName/storage" ;
+         owlim:base-URL "http://www.ontotext.com/" ;
+         owlim:enable-literal-index "false" ;
+         owlim:enable-context-index "false" ;
+         owlim:enablePredicateList "false" 
+      ]
+   ].
