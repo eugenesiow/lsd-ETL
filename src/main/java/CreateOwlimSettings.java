@@ -7,11 +7,11 @@ import org.apache.commons.io.FileUtils;
 
 public class CreateOwlimSettings {
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugenesiow/Documents/Programming/knoesis_observations_rdf_fix/";
-		String exampleTTL = "/Users/eugenesiow/Downloads/graphdb-se-6.6.3/loadrdf/sample.ttl";
-		String outputPath = "/Users/eugenesiow/Downloads/graphdb-se-6.6.3/loadrdf/srbench/";
-		String scriptPath = "/Users/eugenesiow/Downloads/graphdb-se-6.6.3/bin/loadSRBench.sh";
-		String rdfPath = "/Users/eugenesiow/Documents/Programming/knoesis_observations_rdf_fix/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
+		String exampleTTL = "/Users/eugene/Documents/graphdb-se-6.6.3/loadrdf/sample.ttl";
+		String outputPath = "/Users/eugene/Documents/graphdb-se-6.6.3/loadrdf/srbench_ike/";
+		String scriptPath = "/Users/eugene/Documents/graphdb-se-6.6.3/bin/loadSRBench_ike.sh";
+		String rdfPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged/";
 		
 		try {
 			String sampleConfig = FileUtils.readFileToString(new File(exampleTTL));

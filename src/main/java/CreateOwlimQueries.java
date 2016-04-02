@@ -12,7 +12,7 @@ public class CreateOwlimQueries {
 	public static void main(String[] args) {
 		String folderPath = "samples/srbench_queries/";
 		String outputPath = "samples/owlim_queries/";
-		String stationPath = "/Users/eugenesiow/Downloads/graphdb-se-6.6.3/loadrdf/srbench/";
+		String stationPath = "/Users/eugene/Documents/graphdb-se-6.6.3/loadrdf/srbench/";
 		
 		try {
 			File folder = new File(folderPath);
@@ -39,22 +39,36 @@ public class CreateOwlimQueries {
 			}
 			
 			int count = 0;
-			BufferedWriter bw = null;
-			for(String stationName:stationList) {
-				if(count%100==0) {
-					if(bw!=null)
-						bw.close();
-					bw = new BufferedWriter(new FileWriter(outputPath + "query"+(count/100)+".sh"));
+			int start = 0;
+			int end = 999;
+			BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "queryNow.sh"));
+			for(int i=1;i<=10;i++) {
+				count=0;
+				for(String stationName:stationList) {
+					if(count>=start && count <=end) {
+						String request = "curl -X POST http://192.168.0.102:8080/repositories/"+stationName+" -d @q"+i+".sparql -w \"%{time_}\\n\" -o /dev/null -s >> results_q"+(i)+".out";
+						bw.append(request + "\n");
+					}
+					count++;
 				}
-				for(int i=1;i<=10;i++) {
-					String request = "curl -X POST http://localhost:8080/repositories/"+stationName+" -d @q"+i+".sparql -w \"%{time_}\\n\" -o /dev/null -s >> results"+(count/100)+".out";
-					bw.append(request + "\n");
-				}
-				
-				count++;
 			}
-			if(bw!=null)
-				bw.close();
+//			BufferedWriter bw = null;
+//			for(String stationName:stationList) {
+//				if(count%100==0) {
+//					if(bw!=null)
+//						bw.close();
+//					bw = new BufferedWriter(new FileWriter(outputPath + "query"+(count/100)+".sh"));
+//				}
+//				for(int i=1;i<=10;i++) {
+//					String request = "curl -X POST http://localhost:8080/repositories/"+stationName+" -d @q"+i+".sparql -w \"%{time_}\\n\" -o /dev/null -s >> results"+(count/100)+".out";
+//					bw.append(request + "\n");
+//				}
+//				
+//				count++;
+//			}
+//			if(bw!=null)
+//				bw.close();
+			bw.close();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
