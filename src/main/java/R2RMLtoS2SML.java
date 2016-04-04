@@ -18,16 +18,17 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.util.FileManager;
-import org.json.JSONArray;
 
 
-public class R2RMLtoS2SMAP {
+public class R2RMLtoS2SML {
 	
 	private static Map<String,String> subjectReference = new HashMap<String,String>();
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_map_meta_test/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
+		String folderPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_map_meta_test/";
+//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_map_meta_test/";
+//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
+		String outputPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_r2rml/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;
@@ -129,7 +130,9 @@ public class R2RMLtoS2SMAP {
 						
 						String subjectMapLink = "";
 						if(subject.isAnon()) {
-							subjectMapLink = "\t    rr:constant <"+subject.toString()+">;\n";
+//							subjectMapLink = "\t    rr:constant <"+subject.toString()+">;\n";
+							subjectMapLink = "\t    rr:termType rr:IRI;  \n" + 
+									"\t    rr:template \"http://data.example.com/"+index+++"/{time}\";\n";
 						} else {
 							String subjectUri = subject.asResource().toString();
 							if(subjectUri.contains("{")) {
