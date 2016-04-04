@@ -33,6 +33,8 @@ public class CreateOwlimAddRepo {
 					
 					String shellScript = "curl -X PUT http://192.168.0.102:8080/rest/repositories -d @"+stationName+".json --header \"Content-Type: application/json\"";
 					bw.append(shellScript+"\n");
+//					shellScript = "curl -X DELETE http://192.168.0.102:8080/rest/repositories/"+stationName;
+//					bw.append(shellScript+"\n");
 					
 					FileUtils.writeStringToFile(new File(outputPath+stationName+".json"), configTTL);
 					count++;
