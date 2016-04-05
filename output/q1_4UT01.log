@@ -1,0 +1,359 @@
+#logback.classic pattern: %d{HH:mm:ss.SSS} |-%-5level in %logger{36} - %msg%n
+18:52:21.176 |-DEBUG in i.u.k.obda.model.impl.OBDAModelImpl - OBDA model is initialized!
+18:52:21.186 |-DEBUG in org.openrdf.rio.RDFParserRegistry - Registered service class org.openrdf.rio.n3.N3ParserFactory
+18:52:21.186 |-DEBUG in org.openrdf.rio.RDFParserRegistry - Registered service class org.openrdf.rio.ntriples.NTriplesParserFactory
+18:52:21.187 |-DEBUG in org.openrdf.rio.RDFParserRegistry - Registered service class org.openrdf.rio.rdfxml.RDFXMLParserFactory
+18:52:21.187 |-DEBUG in org.openrdf.rio.RDFParserRegistry - Registered service class org.openrdf.rio.turtle.TurtleParserFactory
+18:52:21.204 |-DEBUG in o.o.rio.DatatypeHandlerRegistry - Registered service class org.openrdf.rio.datatypes.XMLSchemaDatatypeHandler
+18:52:21.204 |-DEBUG in o.o.rio.DatatypeHandlerRegistry - Registered service class org.openrdf.rio.datatypes.RDFDatatypeHandler
+18:52:21.204 |-DEBUG in o.o.rio.DatatypeHandlerRegistry - Registered service class org.openrdf.rio.datatypes.DBPediaDatatypeHandler
+18:52:21.205 |-DEBUG in o.o.rio.DatatypeHandlerRegistry - Registered service class org.openrdf.rio.datatypes.VirtuosoGeometryDatatypeHandler
+18:52:21.205 |-DEBUG in o.o.rio.DatatypeHandlerRegistry - Registered service class org.openrdf.rio.datatypes.GeoSPARQLDatatypeHandler
+18:52:21.206 |-DEBUG in o.o.rio.LanguageHandlerRegistry - Registered service class org.openrdf.rio.languages.RFC3066LanguageHandler
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/2/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/2/{}",time),URI("http://data.example.com/3/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/4/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/4/{}",time),URI("http://data.example.com/11/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/9/{}",time),URI("http://data.example.com/5/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/9/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/8/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/8/{}",time),URI("http://data.example.com/1/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/13/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/13/{}",time),URI("http://data.example.com/0/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/12/{}",time),URI("http://data.example.com/7/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/12/{}",time),URI("http://data.example.com/14/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/9/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/2/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/12/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/8/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/6/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/4/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/13/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/6/{}",time),URI("http://data.example.com/10/{}",time))]
+WARNING joinMapping introduced : SELECT * FROM (SELECT * FROM _4UT01) AS tmp ==> [http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/6/{}",time),URI("http://data.example.com/14/{}",time))]
+18:52:21.288 |-DEBUG in i.u.k.obda.model.impl.OBDAModelImpl - OBDA model is initialized!
+18:52:21.291 |-DEBUG in i.u.k.o.o.owlapi3.QuestOWL - Load ontologies called. Translating ontologies.
+18:52:21.291 |-DEBUG in i.u.k.o.o.OWLAPI3TranslatorUtility - Load ontologies called. Translating 1 ontologies.
+18:52:21.298 |-DEBUG in i.u.k.o.o.OWLAPI3TranslatorUtility - Ontology loaded: [Ontology info. Axioms: 0 Classes: 2 Object Properties: 2 Data Properties: 2]
+18:52:21.298 |-DEBUG in i.u.k.o.o.owlapi3.QuestOWL - Initializing a new Quest instance...
+18:52:21.301 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Quest configuration:
+18:52:21.301 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Extensional query rewriting enabled: false
+18:52:21.301 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Optimize TBox using class/property equivalences: true
+18:52:21.301 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - ABox mode: virtual
+18:52:21.301 |-DEBUG in i.u.k.obda.model.impl.OBDAModelImpl - OBDA model is initialized!
+18:52:21.302 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Initializing Quest...
+18:52:21.309 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Testing DB connection...
+18:52:21.514 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Connection Pool Properties:
+18:52:21.514 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Start size: 2
+18:52:21.514 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Max size: 20
+18:52:21.514 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Remove abandoned connections: false
+18:52:21.661 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - DB Metadata: 
+"PUBLIC"."_4UT01"=CREATE TABLE "PUBLIC"."_4UT01" (
+   "TIME" TIMESTAMP,
+   "PRECIPITATION" DECIMAL,
+   "RELATIVEHUMIDITY" DECIMAL,
+   "WINDGUST" DECIMAL,
+   "WINDSPEED" DECIMAL,
+   "AIRTEMPERATURE" DECIMAL,
+   "DEWPOINT" DECIMAL,
+   "WINDDIRECTION" DECIMAL
+)
+"_4UT01"=CREATE TABLE "PUBLIC"."_4UT01" (
+   "TIME" TIMESTAMP,
+   "PRECIPITATION" DECIMAL,
+   "RELATIVEHUMIDITY" DECIMAL,
+   "WINDGUST" DECIMAL,
+   "WINDSPEED" DECIMAL,
+   "AIRTEMPERATURE" DECIMAL,
+   "DEWPOINT" DECIMAL,
+   "WINDDIRECTION" DECIMAL
+)
+
+18:52:21.698 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Original mapping size: 75
+18:52:21.710 |-DEBUG in i.u.k.o.o.core.QuestUnfolder - TMapping size: 75
+18:52:21.710 |-DEBUG in i.u.k.o.o.core.QuestUnfolder - TMapping processing time: 8 ms
+18:52:21.710 |-DEBUG in i.u.k.o.o.core.QuestUnfolder - Appended 0 class assertions from ontology as fact rules
+18:52:21.710 |-DEBUG in i.u.k.o.o.core.QuestUnfolder - Appended 0 object property assertions as fact rules
+18:52:21.714 |-DEBUG in i.u.k.o.o.core.QuestUnfolder - Final set of mappings: 
+ http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation(URI("http://data.example.com/13/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation(URI("http://data.example.com/12/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocatedNearRel(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://www.w3.org/2003/01/geo/wgs84_pos#lat(URI("http://knoesis.wright.edu/ssw/point_4UT01"),http://www.w3.org/2000/01/rdf-schema#Literal("40.82944")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/5/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/1/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#fahrenheit")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/11/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#degrees")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#miles")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/0/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#milesPerHour")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/3/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#fahrenheit")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/10/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#percent")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(URI("http://data.example.com/7/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#milesPerHour")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/2/{}",t0),URI("http://data.example.com/3/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/4/{}",t0),URI("http://data.example.com/11/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/9/{}",t0),URI("http://data.example.com/5/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/8/{}",t0),URI("http://data.example.com/1/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/13/{}",t0),URI("http://data.example.com/0/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/12/{}",t0),URI("http://data.example.com/7/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(URI("http://data.example.com/6/{}",t0),URI("http://data.example.com/10/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation(URI("http://data.example.com/2/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation(URI("http://data.example.com/8/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://www.w3.org/2003/01/geo/wgs84_pos#long(URI("http://knoesis.wright.edu/ssw/point_4UT01"),http://www.w3.org/2000/01/rdf-schema#Literal("-111.88222")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_AirTemperature")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindDirection")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_Precipitation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_DewPoint")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindGust")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindSpeed")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_RelativeHumidity")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/weather.owl#WindDirectionObservation(URI("http://data.example.com/4/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation(URI("http://data.example.com/9/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#LocatedNearRel(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://www.w3.org/2003/01/geo/wgs84_pos#alt(URI("http://knoesis.wright.edu/ssw/point_4UT01"),http://www.w3.org/2000/01/rdf-schema#Literal("5350.0")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#distance(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),http://www.w3.org/2000/01/rdf-schema#Literal("1.1406")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#processLocation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/point_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://knoesis.wright.edu/ssw/ont/weather.owl#RelativeHumidityObservation(URI("http://data.example.com/6/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://www.w3.org/2003/01/geo/wgs84_pos#Point(URI("http://knoesis.wright.edu/ssw/point_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+http://www.w3.org/2006/time#Instant(URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/5/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t1)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t1)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/1/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t6)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t6), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/11/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t7)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/0/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t3)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t3)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/3/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t5)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t5), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/10/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t2)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t2)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(URI("http://data.example.com/7/{}",t0),http://www.w3.org/2001/XMLSchema#decimal(t4)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t4), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/9/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/2/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/12/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/8/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/6/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/4/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://data.example.com/13/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/2/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/4/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/9/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/8/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/13/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/12/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(URI("http://data.example.com/6/{}",t0),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://www.w3.org/2006/time#inXSDDateTime(URI("http://data.example.com/14/{}",t0),http://www.w3.org/2001/XMLSchema#dateTime(t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/5/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/1/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/11/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/0/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/3/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/10/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData(URI("http://data.example.com/7/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocation(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://sws.geonames.org/5773517/")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/13/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/12/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#WindSpeedObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocatedNearRel"),URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://knoesis.wright.edu/ssw/point_4UT01"),URI("http://www.w3.org/2003/01/geo/wgs84_pos#lat"),http://www.w3.org/2000/01/rdf-schema#Literal("40.82944")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/5/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/1/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#fahrenheit")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/11/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#degrees")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#miles")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/0/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#milesPerHour")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/3/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#fahrenheit")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/10/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#percent")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/7/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#milesPerHour")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/3/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/11/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/5/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/1/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/0/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/7/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result"),URI("http://data.example.com/10/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/2/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/8/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#TemperatureObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/point_4UT01"),URI("http://www.w3.org/2003/01/geo/wgs84_pos#long"),http://www.w3.org/2000/01/rdf-schema#Literal("-111.88222")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_AirTemperature")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindDirection")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_Precipitation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_DewPoint")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindGust")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_WindSpeed")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#observedProperty"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#_RelativeHumidity")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure"),URI("http://knoesis.wright.edu/ssw/System_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/4/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#WindDirectionObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/9/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#LocatedNearRel")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://knoesis.wright.edu/ssw/point_4UT01"),URI("http://www.w3.org/2003/01/geo/wgs84_pos#alt"),http://www.w3.org/2000/01/rdf-schema#Literal("5350.0")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#distance"),http://www.w3.org/2000/01/rdf-schema#Literal("1.1406")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#processLocation"),URI("http://knoesis.wright.edu/ssw/point_4UT01")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/6/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#RelativeHumidityObservation")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/point_4UT01"),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://www.w3.org/2003/01/geo/wgs84_pos#Point")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+triple(URI("http://data.example.com/14/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://www.w3.org/2006/time#Instant")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/5/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t1)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t1)
+triple(URI("http://data.example.com/1/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t6)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t6), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/11/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t7)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/0/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t3)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t3)
+triple(URI("http://data.example.com/3/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t5)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t5), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/10/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t2)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0), IS_NOT_NULL(t2)
+triple(URI("http://data.example.com/7/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),http://www.w3.org/2001/XMLSchema#decimal(t4)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t4), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/9/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/2/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/12/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/8/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/6/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/4/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/System_4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#generatedObservation"),URI("http://data.example.com/13/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/2/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/4/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/9/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/8/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/13/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/12/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/6/{}",t0),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),URI("http://data.example.com/14/{}",t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/14/{}",t0),URI("http://www.w3.org/2006/time#inXSDDateTime"),http://www.w3.org/2001/XMLSchema#dateTime(t0)) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/5/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/1/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/11/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/0/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/3/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/10/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://data.example.com/7/{}",t0),URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7), IS_NOT_NULL(t0)
+triple(URI("http://knoesis.wright.edu/ssw/LocatedNearRel4UT01"),URI("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#hasLocation"),URI("http://sws.geonames.org/5773517/")) :- PUBLIC._4UT01(t0,t1,t2,t3,t4,t5,t6,t7)
+18:52:21.723 |-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - ... Quest has been initialized.
+18:52:22.007 |-DEBUG in i.u.k.o.o.owlapi3.QuestOWL - Quest has completed the setup and it is ready for query answering!
+18:52:22.024 |-DEBUG in o.o.query.parser.QueryParserRegistry - Registered service class org.openrdf.query.parser.sparql.SPARQLParserFactory
+18:52:22.066 |-DEBUG in i.u.k.o.o.core.QuestStatement - Executing SPARQL query: 
+PREFIX om-owl: <http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#>
+PREFIX weather: <http://knoesis.wright.edu/ssw/ont/weather.owl#>
+PREFIX owl-time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?sensor ?value ?uom
+WHERE {
+  ?observation om-owl:procedure ?sensor ;
+               a weather:RainfallObservation ;
+               om-owl:result ?result ;
+               om-owl:samplingTime ?instant .
+  ?instant owl-time:inXSDDateTime ?time .
+  ?result om-owl:floatValue ?value ;
+          om-owl:uom ?uom .
+  FILTER (?time>"2003-04-01T00:00:00"^^xsd:dateTime && ?time<"2003-04-01T01:00:00"^^xsd:dateTime)
+}
+18:52:22.069 |-DEBUG in i.u.k.o.o.c.t.SparqlAlgebraToDatalogTranslator - SPARQL algebra: 
+Distinct
+   Projection
+      ProjectionElemList
+         ProjectionElem "sensor"
+         ProjectionElem "value"
+         ProjectionElem "uom"
+      Filter
+         And
+            Compare (>)
+               Var (name=time)
+               ValueConstant (value="2003-04-01T00:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>)
+            Compare (<)
+               Var (name=time)
+               ValueConstant (value="2003-04-01T01:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>)
+         Join
+            Join
+               Join
+                  Join
+                     Join
+                        Join
+                           StatementPattern
+                              Var (name=observation)
+                              Var (name=-const-http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure-uri, value=http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure, anonymous)
+                              Var (name=sensor)
+                           StatementPattern
+                              Var (name=observation)
+                              Var (name=-const-http://www.w3.org/1999/02/22-rdf-syntax-ns#type-uri, value=http://www.w3.org/1999/02/22-rdf-syntax-ns#type, anonymous)
+                              Var (name=-const-http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation-uri, value=http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation, anonymous)
+                        StatementPattern
+                           Var (name=observation)
+                           Var (name=-const-http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result-uri, value=http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result, anonymous)
+                           Var (name=result)
+                     StatementPattern
+                        Var (name=observation)
+                        Var (name=-const-http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime-uri, value=http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime, anonymous)
+                        Var (name=instant)
+                  StatementPattern
+                     Var (name=instant)
+                     Var (name=-const-http://www.w3.org/2006/time#inXSDDateTime-uri, value=http://www.w3.org/2006/time#inXSDDateTime, anonymous)
+                     Var (name=time)
+               StatementPattern
+                  Var (name=result)
+                  Var (name=-const-http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue-uri, value=http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue, anonymous)
+                  Var (name=value)
+            StatementPattern
+               Var (name=result)
+               Var (name=-const-http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom-uri, value=http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom, anonymous)
+               Var (name=uom)
+
+18:52:22.077 |-DEBUG in i.u.k.o.o.core.QuestStatement - Datalog program translated from the SPARQL query: 
+ans100000000(observation,sensor) :- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(observation,sensor), http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation(observation)
+ans10000000(result,observation,sensor) :- ans100000000(observation,sensor), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(observation,result)
+ans1000000(result,observation,sensor,instant) :- ans10000000(result,observation,sensor), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(observation,instant)
+ans100000(result,observation,sensor,time,instant) :- ans1000000(result,observation,sensor,instant), http://www.w3.org/2006/time#inXSDDateTime(instant,time)
+ans10000(result,observation,sensor,time,value,instant) :- ans100000(result,observation,sensor,time,instant), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(result,value)
+ans1000(result,uom,observation,sensor,time,value,instant) :- ans10000(result,observation,sensor,time,value,instant), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(result,uom)
+ans100(result,uom,observation,sensor,time,value,instant) :- ans1000(result,uom,observation,sensor,time,value,instant), AND(GT(time,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")),LT(time,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")))
+ans10(sensor,value,uom) :- ans100(result,uom,observation,sensor,time,value,instant)
+ans1(sensor,value,uom) :- ans10(sensor,value,uom)
+
+18:52:22.078 |-DEBUG in i.u.k.o.o.core.QuestStatement - Flattened program: 
+ans1(sensor,value,uom) :- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(observation_1,sensor), http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation(observation_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(observation_1,result_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(observation_1,instant_1), http://www.w3.org/2006/time#inXSDDateTime(instant_1,time_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(result_1,value), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(result_1,uom), AND(GT(time_1,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")),LT(time_1,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")))
+
+18:52:22.078 |-DEBUG in i.u.k.o.o.core.QuestStatement - Replacing equivalences...
+18:52:22.079 |-DEBUG in i.u.k.o.o.core.QuestStatement - Normalized program: 
+ans1(sensor,value,uom) :- http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#procedure(observation_1,sensor), http://knoesis.wright.edu/ssw/ont/weather.owl#RainfallObservation(observation_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#result(observation_1,result_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime(observation_1,instant_1), http://www.w3.org/2006/time#inXSDDateTime(instant_1,time_1), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue(result_1,value), http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom(result_1,uom), AND(GT(time_1,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")),LT(time_1,http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")))
+
+18:52:22.079 |-DEBUG in i.u.k.o.o.core.QuestStatement - Start the rewriting process...
+18:52:22.080 |-DEBUG in i.u.k.o.o.core.QuestStatement - Start the partial evaluation process...
+18:52:22.083 |-DEBUG in i.u.k.o.o.core.QuestStatement - Data atoms evaluated: 
+ans1(URI("http://knoesis.wright.edu/ssw/System_4UT01"),http://www.w3.org/2001/XMLSchema#decimal(t1_36),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters")) :- PUBLIC._4UT01(t0_11,t1_11,t2_11,t3_11,t4_11,t5_11,t6_11,t7_11), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_20,t2_20,t3_20,t4_20,t5_20,t6_20,t7_20), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_23,t2_23,t3_23,t4_23,t5_23,t6_23,t7_23), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_30,t2_30,t3_30,t4_30,t5_30,t6_30,t7_30), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_35,t2_35,t3_35,t4_35,t5_35,t6_35,t7_35), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_36,t2_36,t3_36,t4_36,t5_36,t6_36,t7_36), IS_NOT_NULL(t0_11), IS_NOT_NULL(t1_36), PUBLIC._4UT01(t0_11,t1_43,t2_43,t3_43,t4_43,t5_43,t6_43,t7_43), IS_NOT_NULL(t0_11), AND(GT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")),LT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")))
+
+18:52:22.083 |-DEBUG in i.u.k.o.o.core.QuestStatement - Irrelevant rules removed: 
+ans1(URI("http://knoesis.wright.edu/ssw/System_4UT01"),http://www.w3.org/2001/XMLSchema#decimal(t1_36),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters")) :- PUBLIC._4UT01(t0_11,t1_11,t2_11,t3_11,t4_11,t5_11,t6_11,t7_11), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_20,t2_20,t3_20,t4_20,t5_20,t6_20,t7_20), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_23,t2_23,t3_23,t4_23,t5_23,t6_23,t7_23), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_30,t2_30,t3_30,t4_30,t5_30,t6_30,t7_30), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_35,t2_35,t3_35,t4_35,t5_35,t6_35,t7_35), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_36,t2_36,t3_36,t4_36,t5_36,t6_36,t7_36), IS_NOT_NULL(t0_11), IS_NOT_NULL(t1_36), PUBLIC._4UT01(t0_11,t1_43,t2_43,t3_43,t4_43,t5_43,t6_43,t7_43), IS_NOT_NULL(t0_11), AND(GT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")),LT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")))
+
+18:52:22.084 |-DEBUG in i.u.k.o.o.core.QuestStatement - Boolean expression evaluated: 
+ans1(URI("http://knoesis.wright.edu/ssw/System_4UT01"),http://www.w3.org/2001/XMLSchema#decimal(t1_36),URI("http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters")) :- PUBLIC._4UT01(t0_11,t1_11,t2_11,t3_11,t4_11,t5_11,t6_11,t7_11), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_20,t2_20,t3_20,t4_20,t5_20,t6_20,t7_20), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_23,t2_23,t3_23,t4_23,t5_23,t6_23,t7_23), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_30,t2_30,t3_30,t4_30,t5_30,t6_30,t7_30), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_35,t2_35,t3_35,t4_35,t5_35,t6_35,t7_35), IS_NOT_NULL(t0_11), PUBLIC._4UT01(t0_11,t1_36,t2_36,t3_36,t4_36,t5_36,t6_36,t7_36), IS_NOT_NULL(t0_11), IS_NOT_NULL(t1_36), PUBLIC._4UT01(t0_11,t1_43,t2_43,t3_43,t4_43,t5_43,t6_43,t7_43), IS_NOT_NULL(t0_11), AND(LT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T01:00:00")),GT(http://www.w3.org/2001/XMLSchema#dateTime(t0_11),http://www.w3.org/2001/XMLSchema#dateTime("2003-04-01T00:00:00")))
+
+18:52:22.084 |-DEBUG in i.u.k.o.o.core.QuestStatement - Partial evaluation ended.
+18:52:22.084 |-DEBUG in i.u.k.o.o.core.QuestStatement - Producing the SQL string...
+18:52:22.088 |-DEBUG in i.u.k.o.o.core.QuestStatement - Resulting SQL: 
+SELECT *
+FROM (
+SELECT DISTINCT 
+   1 AS "sensorQuestType", NULL AS "sensorLang", 'http://knoesis.wright.edu/ssw/System_4UT01' AS "sensor", 
+   5 AS "valueQuestType", NULL AS "valueLang", CAST(QVIEW6."PRECIPITATION" AS CHAR) AS "value", 
+   1 AS "uomQuestType", NULL AS "uomLang", 'http://knoesis.wright.edu/ssw/ont/weather.owl#centimeters' AS "uom"
+ FROM 
+"PUBLIC"."_4UT01" QVIEW1,
+"PUBLIC"."_4UT01" QVIEW2,
+"PUBLIC"."_4UT01" QVIEW3,
+"PUBLIC"."_4UT01" QVIEW4,
+"PUBLIC"."_4UT01" QVIEW5,
+"PUBLIC"."_4UT01" QVIEW6,
+"PUBLIC"."_4UT01" QVIEW7
+WHERE 
+QVIEW1."TIME" IS NOT NULL AND
+(QVIEW1."TIME" = QVIEW2."TIME") AND
+(QVIEW1."TIME" = QVIEW3."TIME") AND
+(QVIEW1."TIME" = QVIEW4."TIME") AND
+(QVIEW1."TIME" = QVIEW5."TIME") AND
+(QVIEW1."TIME" = QVIEW6."TIME") AND
+QVIEW6."PRECIPITATION" IS NOT NULL AND
+(QVIEW1."TIME" = QVIEW7."TIME") AND
+((QVIEW1."TIME" < '2003-04-01 01:00:00') AND (QVIEW1."TIME" > '2003-04-01 00:00:00'))
+) SUB_QVIEW
+
+
+18:52:22.088 |-DEBUG in i.u.k.o.o.core.QuestStatement - Executing the SQL query and get the result...
+18:52:23.955 |-DEBUG in i.u.k.o.o.core.QuestStatement - Execution finished.
+
