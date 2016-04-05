@@ -20,8 +20,8 @@ public class CreateOwlimSettings {
 			File folder = new File(folderPath);
 			
 			int count=0;
-			int start=3000;
-			int end=3999;
+			int start=4000;
+			int end=4999;
 			for(File file:folder.listFiles()) {
 				String tempFileName = file.getName();
 				if(tempFileName.startsWith("."))

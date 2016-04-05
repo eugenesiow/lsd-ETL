@@ -20,15 +20,15 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.util.FileManager;
 
 
-public class R2RMLtoS2SML {
+public class S2SMLtoR2RML {
 	
 	private static Map<String,String> subjectReference = new HashMap<String,String>();
 
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_map_meta_test/";
-//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_map_meta_test/";
-//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
-		String outputPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_r2rml/";
+//		String folderPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_map_meta_test/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_map_meta_test/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
+//		String outputPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_r2rml/";
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;

@@ -39,8 +39,8 @@ public class CreateOwlimQueries {
 			}
 			
 			int count = 0;
-			int start = 0;
-			int end = 999;
+			int start = 3000;
+			int end = 3999;
 			BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "queryNow.sh"));
 //			for(int i=1;i<=10;i++) {
 //				count=0;
