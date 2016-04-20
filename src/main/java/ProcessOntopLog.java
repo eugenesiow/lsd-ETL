@@ -15,8 +15,10 @@ import java.util.Map.Entry;
 
 public class ProcessOntopLog {
 	public static void main(String[] args) {
-		String folderPath = "output/";
-		String outputPath = "processed/";
+//		String folderPath = "output/";
+//		String outputPath = "processed/";
+		String folderPath = "/Users/eugene/Downloads/ontop-distribution-1.16.1/output_old/";
+		String outputPath = "/Users/eugene/Downloads/ontop-distribution-1.16.1/processed/";
 		Map<String,List<String>> results = new HashMap<String,List<String>>();
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
 		
@@ -45,13 +47,14 @@ public class ProcessOntopLog {
 						String[] lineParts = line.split("\\|");
 						if(lineParts.length>1) {
 							String message = lineParts[1].trim();
-							if(message.equals("-DEBUG in i.u.k.o.o.core.QuestStatement - Resulting SQL:")) {
+							if(message.equals("-DEBUG in i.u.k.o.o.core.QuestStatement - Executing the SQL query and get the result...")) {
 								endTrans = lineParts[0].trim();
 							}
 							else if(message.equals("-DEBUG in i.u.k.o.o.core.QuestStatement - Execution finished.")) {
 								endQuery = lineParts[0].trim();
 							}
-							else if(message.equals("-DEBUG in i.u.k.obda.model.impl.OBDAModelImpl - OBDA model is initialized!") && first) {
+//							else if(message.equals("-DEBUG in i.u.k.obda.model.impl.OBDAModelImpl - OBDA model is initialized!") && first) {
+							else if(message.equals("-DEBUG in i.u.k.obda.owlrefplatform.core.Quest - Initializing Quest...")&&first) {
 								start = lineParts[0].trim();
 								first = false;
 							}
@@ -60,15 +63,19 @@ public class ProcessOntopLog {
 					}
 					br.close();
 					
+					if(start.trim().equals("") || endTrans.trim().equals("") || endQuery.trim().equals("")) {
+						System.out.println(tempFileName);
+						stationResultsList.add(station+",,,,0,0,0");
+					} else {
+						Date startT = format.parse(start);
+						Date endTransT = format.parse(endTrans);
+						Date endQueryT = format.parse(endQuery);
+						long transTime = endTransT.getTime() - startT.getTime(); 
+						long queryTime = endQueryT.getTime() - endTransT.getTime(); 
+						long totalTime = endQueryT.getTime() - startT.getTime(); 
+						stationResultsList.add(station+","+start+","+endTrans+","+endQuery+","+transTime+","+queryTime+","+totalTime);
+					}
 					
-					Date startT = format.parse(start);
-					Date endTransT = format.parse(endTrans);
-					Date endQueryT = format.parse(endQuery);
-					long transTime = endTransT.getTime() - startT.getTime(); 
-					long queryTime = endQueryT.getTime() - endTransT.getTime(); 
-					long totalTime = endQueryT.getTime() - startT.getTime(); 
-					
-					stationResultsList.add(station+","+start+","+endTrans+","+endQuery+","+transTime+","+queryTime+","+totalTime);
 					results.put(query, stationResultsList);
 				}
 			}

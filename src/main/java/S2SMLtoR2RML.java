@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
@@ -24,147 +26,128 @@ public class S2SMLtoR2RML {
 	
 	private static Map<String,String> subjectReference = new HashMap<String,String>();
 
-	public static void main(String[] args) {
-//		String folderPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_map_meta_test/";
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_map_meta_test/";
-		String outputPath = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
-//		String outputPath = "/Users/eugenesiow/Dropbox/Private/WORK/LinkedSensorData/knoesis_observations_r2rml/";
-		File folder = new File(folderPath);
-		
-		int totalCount = 1;
+	public static void translate(String inputFile,String outputFile) {
 		try {
-		
-			for(File file:folder.listFiles()) {
-				
-				String tempFileName = file.getName();
-				if(tempFileName.startsWith("."))
-					continue;
-				tempFileName = tempFileName.replace(".nt", ".ttl");
-				
-				File newFile = new File(outputPath + tempFileName); 
-				
-//				System.out.println(newFile.toString());
-				
-				BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
-				bw.append("@prefix rr: <http://www.w3.org/ns/r2rml#> .\n");
-				bw.append("@base <http://mappingpedia.org/rdb2rdf/r2rml/tc/> .\n");
-
-				// create an empty model
-				 Model model = ModelFactory.createDefaultModel();
-				 
-				 Map<RDFNode,List<List<RDFNode>>> triples = new HashMap<RDFNode,List<List<RDFNode>>>(); 
-				 
-				 // use the FileManager to find the input file
-				 String inputName = file.getPath();
-				 if(inputName.endsWith(".nt")) {
-					 InputStream in = FileManager.get().open( inputName );
-					 
-					 if (in == null) {
-					    throw new IllegalArgumentException(
-					                                 "File: " + inputName + " not found");
-					}
-	
-					// read the RDF/XML file
-					model.read(in, null, "N3");
-					String queryString = "SELECT * {\n" + 
-							"	?s ?p ?o.\n" + 
-							"}" ;
-					QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
-					ResultSet results = qexec.execSelect() ;
-					while(results.hasNext()) { //add all triples to a map data structure with the key as the subject
-						QuerySolution soln = results.nextSolution();
-						List<RDFNode> doubles = new ArrayList<RDFNode>();
-						doubles.add(soln.get("p"));
-						doubles.add(soln.get("o"));
-						RDFNode key = soln.get("s");
-						List<List<RDFNode>> triple = triples.get(key);
-						if(triple==null) {
-							triple = new ArrayList<List<RDFNode>>();
-						}
-						triple.add(doubles);
-						triples.put(soln.get("s"),triple);
-					}
-					
-					String lastTable = "";
-					
-					String r2rmlMapping = "";
-					
-					int index = 0;
-					
-					subjectReference.clear();
-					
-					for(Entry<RDFNode,List<List<RDFNode>>> entry:triples.entrySet()) {
-						
-						Set<String> tableSet = new HashSet<String>();
-						String triplesMap = "";
-						
-						String subjectClass = "";
-						
-						RDFNode subject = entry.getKey();
-						triplesMap += GetReference(subject.toString()) + "\n";
-						
-						for(List<RDFNode> doubleEntry:entry.getValue()) {
-							List<String> result = GetPredicateObjectMap(doubleEntry);
-							String poMap = result.get(0);
-							if(poMap.equals("[class]")) {
-								subjectClass = "\t    rr:class <"+result.get(1)+">;\n";
-							} else {
-								triplesMap += poMap;
-							}
-							if(!result.get(1).equals("") && !result.get(0).equals("[class]")) {
-								tableSet.add(result.get(1));
-							}
-					    }
-						
-						triplesMap += "\ta rr:TriplesMap;\n"+
-										"\trr:logicalTable [ \n";
-						if(!tableSet.isEmpty()) {
-							for(String table:tableSet) {
-								triplesMap += "\t  rr:tableName  \""+table+"\"; \n"; 
-								lastTable = table;
-							}
-						} else {
-							triplesMap += "\t  rr:tableName  \"[no_table]\"; \n"; 
-						}
-						triplesMap += "\t];\n";
-						
-						String subjectMapLink = "";
-						if(subject.isAnon()) {
-//							subjectMapLink = "\t    rr:constant <"+subject.toString()+">;\n";
-							subjectMapLink = "\t    rr:termType rr:IRI;  \n" + 
-									"\t    rr:template \"http://data.example.com/"+index+++"/{time}\";\n";
-						} else {
-							String subjectUri = subject.asResource().toString();
-							if(subjectUri.contains("{")) {
-								subjectMapLink = "\t    rr:termType rr:IRI;  \n" + 
-										"\t    rr:template \"http://data.example.com/"+index+++"/{time}\";\n";
-							} else {
-								subjectMapLink = "\t    rr:constant <"+subjectUri+">;\n";
-							}
-						}
-						
-						triplesMap += "\trr:subjectMap [    \n" + 
-								"\t    a rr:Subject;\n" + 
-								subjectMapLink +
-								subjectClass +
-								"\t  ];\n";
-
-						triplesMap += ".\n";
-						r2rmlMapping += triplesMap;
-					}
-					
-					r2rmlMapping = r2rmlMapping.replaceAll("\\[no_table\\]", lastTable); //this is necessary as R2RML needs a triplemap to have a logicaltable
-					
-					bw.append(r2rmlMapping);
-					bw.close();
-				 }
-				 totalCount++;
-				 
-				 model.close();
-				
-			}
+			File newFile = new File(outputFile); 
 			
-			System.out.println(totalCount);
+			BufferedWriter bw = new BufferedWriter(new FileWriter(newFile));
+			bw.append("@prefix rr: <http://www.w3.org/ns/r2rml#> .\n");
+			bw.append("@base <http://mappingpedia.org/rdb2rdf/r2rml/tc/> .\n");
+
+			// create an empty model
+			 Model model = ModelFactory.createDefaultModel();
+			 
+			 Map<RDFNode,List<List<RDFNode>>> triples = new HashMap<RDFNode,List<List<RDFNode>>>(); 
+			 
+			 // use the FileManager to find the input file
+			 if(inputFile.endsWith(".nt")) {
+				 String inputFileStr = FileUtils.readFileToString(new File(inputFile));
+				 inputFileStr = inputFileStr.replace("{", ".#.");
+				 inputFileStr = inputFileStr.replace("}", ".#.");
+//				 InputStream in = FileManager.get().open( inputFile );
+				 InputStream in = IOUtils.toInputStream(inputFileStr);
+				 if (in == null) {
+				    throw new IllegalArgumentException(
+				                                 "File: " + inputFile + " not found");
+				}
+
+				// read the RDF/XML file
+				model.read(in, null, "N3");
+				String queryString = "SELECT * {\n" + 
+						"	?s ?p ?o.\n" + 
+						"}" ;
+				QueryExecution qexec = QueryExecutionFactory.create(queryString,model);
+				ResultSet results = qexec.execSelect() ;
+				while(results.hasNext()) { //add all triples to a map data structure with the key as the subject
+					QuerySolution soln = results.nextSolution();
+					List<RDFNode> doubles = new ArrayList<RDFNode>();
+					doubles.add(soln.get("p"));
+					doubles.add(soln.get("o"));
+					RDFNode key = soln.get("s");
+					List<List<RDFNode>> triple = triples.get(key);
+					if(triple==null) {
+						triple = new ArrayList<List<RDFNode>>();
+					}
+					triple.add(doubles);
+					triples.put(soln.get("s"),triple);
+				}
+				
+				String lastTable = "";
+				
+				String r2rmlMapping = "";
+				
+				int index = 0;
+				
+				subjectReference.clear();
+				
+				for(Entry<RDFNode,List<List<RDFNode>>> entry:triples.entrySet()) {
+					
+					Set<String> tableSet = new HashSet<String>();
+					String triplesMap = "";
+					
+					String subjectClass = "";
+					
+					RDFNode subject = entry.getKey();
+					triplesMap += GetReference(subject.toString()) + "\n";
+					
+					for(List<RDFNode> doubleEntry:entry.getValue()) {
+						List<String> result = GetPredicateObjectMap(doubleEntry);
+						String poMap = result.get(0);
+						if(poMap.equals("[class]")) {
+							subjectClass = "\t    rr:class <"+result.get(1)+">;\n";
+						} else {
+							triplesMap += poMap;
+						}
+						if(!result.get(1).equals("") && !result.get(0).equals("[class]")) {
+							tableSet.add(result.get(1));
+						}
+				    }
+					
+					triplesMap += "\ta rr:TriplesMap;\n"+
+									"\trr:logicalTable [ \n";
+					if(!tableSet.isEmpty()) {
+						for(String table:tableSet) {
+							triplesMap += "\t  rr:tableName  \""+table+"\"; \n"; 
+							lastTable = table;
+						}
+					} else {
+						triplesMap += "\t  rr:tableName  \"[no_table]\"; \n"; 
+					}
+					triplesMap += "\t];\n";
+					
+					String subjectMapLink = "";
+					if(subject.isAnon()) {
+//							subjectMapLink = "\t    rr:constant <"+subject.toString()+">;\n";
+						subjectMapLink = "\t    rr:termType rr:IRI;  \n" + 
+								"\t    rr:template \"http://data.example.com/"+index+++"/{time}\";\n";
+					} else {
+						String subjectUri = subject.asResource().toString();
+						if(subjectUri.contains(".#.")) {
+							subjectUri = subjectUri.replaceAll("[.]#[.](.+?)[.](.+?)[.]#[.]", "{$2}");
+							subjectMapLink = "\t    rr:termType rr:IRI;  \n" + 
+									"\t    rr:template \""+subjectUri+"\";\n";
+						} else {
+							subjectMapLink = "\t    rr:constant <"+subjectUri+">;\n";
+						}
+					}
+					
+					triplesMap += "\trr:subjectMap [    \n" + 
+							"\t    a rr:Subject;\n" + 
+							subjectMapLink +
+							subjectClass +
+							"\t  ];\n";
+
+					triplesMap += ".\n";
+					r2rmlMapping += triplesMap;
+				}
+				
+				r2rmlMapping = r2rmlMapping.replaceAll("\\[no_table\\]", lastTable); //this is necessary as R2RML needs a triplemap to have a logicaltable
+				
+				bw.append(r2rmlMapping);
+				bw.close();
+			 }
+			 
+			 model.close();
 		
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -207,7 +190,9 @@ public class S2SMLtoR2RML {
 			}
 		} else if(o.isURIResource()) {
 			String resource = o.asResource().getURI();
-			if(resource.contains("{")) {
+			if(resource.contains(".#.")) {
+				resource = resource.replaceAll("[.]#[.](.+?)[.](.+?)[.]#[.]", "{$2}");
+//				System.out.println(resource);
 				object = "rr:termType rr:IRI; rr:template \""+resource+"\";";
 			} else {
 				object = "rr:constant <"+resource+">";

@@ -11,8 +11,19 @@ import org.apache.commons.io.FileUtils;
 public class CreateOwlimQueries {
 	public static void main(String[] args) {
 		String folderPath = "samples/srbench_queries/";
+		if (args.length > 0) {
+        	folderPath = args[0];
+        }
+		
 		String outputPath = "samples/owlim_queries/";
+		if (args.length > 1) {
+        	outputPath = args[1];
+        }
+		
 		String stationPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+		if (args.length > 2) {
+			stationPath = args[2];
+        }
 		
 		try {
 			File folder = new File(folderPath);
@@ -39,8 +50,8 @@ public class CreateOwlimQueries {
 			}
 			
 			int count = 0;
-			int start = 3000;
-			int end = 3999;
+			int start = 0;
+			int end = 999;
 			BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "queryNow.sh"));
 //			for(int i=1;i<=10;i++) {
 //				count=0;

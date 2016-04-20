@@ -106,7 +106,7 @@ public class LoadStation {
 					}
 					prep.executeBatch();
 					conn.setAutoCommit(true);
-			        
+			      
 			      stat.executeUpdate("CREATE INDEX _"+stationName+"_date_index ON _"+stationName+"(time)");
 			      
 			      stat.execute("CREATE USER eugene PASSWORD 'eugene' ADMIN");

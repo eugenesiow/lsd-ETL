@@ -12,5 +12,5 @@ WHERE {
   ?instant owl-time:inXSDDateTime ?time .
   ?result om-owl:floatValue ?value ;
           om-owl:uom ?uom .
-  FILTER (?time>"2003-04-01T00:00:00"^^xsd:dateTime && ?time<"2003-04-01T01:00:00"^^xsd:dateTime)
+  FILTER (?time>"2003-04-03T16:00:00"^^xsd:dateTime && ?time<"2003-04-03T17:00:00"^^xsd:dateTime)
 }
