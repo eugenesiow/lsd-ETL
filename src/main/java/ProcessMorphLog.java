@@ -18,7 +18,14 @@ public class ProcessMorphLog {
 //		String folderPath = "output/";
 //		String outputPath = "processed/";
 		String folderPath = "/Users/eugene/Documents/Programming/morph/examples/srbench/output/";
+		if (args.length > 0) {
+        	folderPath = args[0];
+        }
+		
 		String outputPath = "/Users/eugene/Documents/Programming/morph/processed/";
+		if (args.length > 1) {
+			outputPath = args[1];
+        }
 		
 		try {
 			for(int i=1;i<=10;i++) {

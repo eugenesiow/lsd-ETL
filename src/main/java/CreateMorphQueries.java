@@ -11,9 +11,29 @@ import org.apache.commons.io.FileUtils;
 public class CreateMorphQueries {
 	public static void main(String[] args) {
 		String folderPath = "samples/srbench_queries/";
+		if (args.length > 0) {
+        	folderPath = args[0];
+        }
+		
 		String settingsPath = "samples/morph_settings/sample.r2rml.properties";
+		if (args.length > 1) {
+			settingsPath = args[1];
+        }
+		
 		String outputPath = "/Users/eugene/Documents/Programming/morph/examples/srbench/";
+		if (args.length > 2) {
+			outputPath = args[2];
+        }
+		
 		String stationPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+		if (args.length > 3) {
+			stationPath = args[3];
+        }
+		
+		String logPath = "examples/srbench/output/";
+		if (args.length > 4) {
+			logPath = args[4];
+        }
 		
 		try {
 			File folder = new File(folderPath);
@@ -47,7 +67,7 @@ public class CreateMorphQueries {
 						String settingsStr = settings.replaceAll("db_name",stationName).replaceAll("query_number", "q"+i);
 						String outputFile = stationName+"_q"+i+".r2rml.properties";
 						FileUtils.writeStringToFile(new File(outputPath+outputFile), settingsStr);
-						String shellScript = "java -cp .:morph.jar:lib/* es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner examples/srbench "+outputFile+" > examples/srbench/output/q"+i+"/"+stationName+".out";
+						String shellScript = "java -cp .:morph.jar:lib/* es.upm.fi.dia.oeg.morph.r2rml.rdb.engine.MorphRDBRunner "+outputPath+" "+outputFile+" > "+logPath+"q"+i+"/"+stationName+".out";
 						bw.append(shellScript + "\n");
 					}
 				}

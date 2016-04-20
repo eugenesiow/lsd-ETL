@@ -16,17 +16,39 @@ import org.apache.jena.jdbc.remote.RemoteEndpointDriver;
 
 public class TestTDBQuery {
 	public static void main(String[] args) {
-		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
 //		String folderPath = "/Users/eugene/Downloads/knoesis_results/lists/";
+		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
+		if (args.length > 0) {
+			folderPath = args[0];
+        }
+		
 		String queryPath = "/Users/eugene/Dropbox/Private/WORK/LinkedSensorData/queries/";
+		if (args.length > 1) {
+			queryPath = args[1];
+        }
+		
 		String outputPath = "/Users/eugene/Downloads/knoesis_results/";
+		if (args.length > 2) {
+			outputPath = args[2];
+        }
+		String queryName = "q5";
+		if (args.length > 3) {
+			queryName = args[3];
+        }
+		int runs = 3;
+		if (args.length > 4) {
+			runs = Integer.parseInt(args[4]);
+        }
+		String jdbcConnection = "jdbc:jena:remote:query=http://192.168.0.103:8080/";
+		if (args.length > 5) {
+			jdbcConnection = args[5];
+        }
 		
 //		String listNumber = "5";
-		for(int run = 1;run<=3;run++) {
+		for(int run = 1;run<=runs;run++) {
 			System.out.println("run "+run);
 	
 			try {
-				String queryName = "q5";
 				String queryStr = FileUtils.readFileToString(new File(queryPath + queryName + ".sparql"));
 				
 //				BufferedReader br = new BufferedReader(new FileReader(folderPath + "stations"+listNumber+".txt"));
@@ -49,7 +71,7 @@ public class TestTDBQuery {
 					
 					long startTime = System.currentTimeMillis();
 //					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://192.168.0.103:3030/"+stationName+"/sparql");
-					Connection conn = DriverManager.getConnection("jdbc:jena:remote:query=http://192.168.0.103:8080/"+stationName);
+					Connection conn = DriverManager.getConnection(jdbcConnection+stationName);
 					
 					// Need a statement
 					Statement stmt = conn.createStatement();

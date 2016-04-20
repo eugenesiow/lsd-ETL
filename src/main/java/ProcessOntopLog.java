@@ -18,7 +18,15 @@ public class ProcessOntopLog {
 //		String folderPath = "output/";
 //		String outputPath = "processed/";
 		String folderPath = "/Users/eugene/Downloads/ontop-distribution-1.16.1/output_old/";
+		if (args.length > 0) {
+        	folderPath = args[0];
+        }
+		
 		String outputPath = "/Users/eugene/Downloads/ontop-distribution-1.16.1/processed/";
+		if (args.length > 1) {
+			outputPath = args[1];
+        }
+		
 		Map<String,List<String>> results = new HashMap<String,List<String>>();
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss.SSS");
 		

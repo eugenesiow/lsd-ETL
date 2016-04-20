@@ -12,8 +12,19 @@ public class CreateOntopQueries {
 	public static void main(String[] args) {
 //		String stationPath = "/Users/eugene/Downloads/knoesis_observations_rdf_fix/";
 		String stationPath = "/Users/eugenesiow/Documents/Programming/knoesis_observations_rdf_fix/";
+		if (args.length > 0) {
+			stationPath = args[0];
+        }
+		
 		String mappingFolder = "/Users/eugene/Downloads/knoesis_observations_r2rml/";
+		if (args.length > 1) {
+			mappingFolder = args[1];
+        }
+		
 		String outputPath = "samples/ontop/";
+		if (args.length > 2) {
+			outputPath = args[2];
+        }
 		
 		try {
 			List<String> stationList = new ArrayList<String>();
