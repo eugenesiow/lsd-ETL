@@ -88,14 +88,14 @@ public class ReverseMapFromN3 {
 							outModel.add(obs,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#samplingTime"),instant);
 							if(soln.get("uom")!=null) {
 								outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#MeasureData"));
-								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createLiteral("_"+stationName+"."+propName));
+								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#floatValue"),outModel.createTypedLiteral("_"+stationName+"."+propName,"http://iot.soton.ac.uk/s2s/s2sml#literalMap"));
 								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#uom"),soln.get("uom"));
 							} else {
 								outModel.add(result,RDF.type,outModel.createResource("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#TruthData"));
-								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#booleanValue"),outModel.createLiteral("_"+stationName+"."+propName));
+								outModel.add(result,outModel.createProperty("http://knoesis.wright.edu/ssw/ont/sensor-observation.owl#booleanValue"),outModel.createTypedLiteral("_"+stationName+"."+propName,"http://iot.soton.ac.uk/s2s/s2sml#literalMap"));
 							}
 							outModel.add(instant,RDF.type,outModel.createResource("http://www.w3.org/2006/time#Instant"));
-							outModel.add(instant,outModel.createProperty("http://www.w3.org/2006/time#inXSDDateTime"),outModel.createLiteral("_"+stationName+".time"));
+							outModel.add(instant,outModel.createProperty("http://www.w3.org/2006/time#inXSDDateTime"),outModel.createTypedLiteral("_"+stationName+".time", "http://iot.soton.ac.uk/s2s/s2sml#literalMap"));
 						}
 						outModel.write(bw,"N-TRIPLES");
 						
