@@ -27,7 +27,7 @@ public class TestTDBQuery {
 			queryPath = args[1];
         }
 		
-		String outputPath = "/Users/eugene/Downloads/knoesis_results/";
+		String outputPath = "/Users/eugene/Downloads/knoesis_results_gizmo2/";
 		if (args.length > 2) {
 			outputPath = args[2];
         }
@@ -39,7 +39,7 @@ public class TestTDBQuery {
 		if (args.length > 4) {
 			runs = Integer.parseInt(args[4]);
         }
-		String jdbcConnection = "jdbc:jena:remote:query=http://192.168.0.103:8080/";
+		String jdbcConnection = "jdbc:jena:remote:query=http://192.168.0.101:8080/";
 		if (args.length > 5) {
 			jdbcConnection = args[5];
         }

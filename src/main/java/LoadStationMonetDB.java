@@ -17,7 +17,7 @@ public class LoadStationMonetDB {
 	static String station = "";
 	
 	public static void main(String[] a) {
-		run("/Users/eugene/Downloads/knoesis_observations_csv/","nl.cwi.monetdb.jdbc.MonetDriver","jdbc:monetdb://localhost/","monetdb","monetdb");
+		run("/Users/eugene/Downloads/knoesis_observations_csv_test/","nl.cwi.monetdb.jdbc.MonetDriver","jdbc:monetdb://localhost/","monetdb","monetdb");
 	}
 	
 	public static int run(String folderPath, String driver, String jdbc, String user, String pass) {
