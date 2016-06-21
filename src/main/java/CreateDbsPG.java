@@ -56,7 +56,7 @@ public class CreateDbsPG {
 							"OPTIONS(compression 'pglz')\n" + 
 							";\n";
 					
-					String postSQL = "COPY _"+stationName+" FROM '"+folderPath+filename+"' WITH CSV HEADER;\n"; 
+					String postSQL = "\\COPY _"+stationName+" FROM '"+folderPath+filename+"' WITH CSV HEADER;\n"; 
 			
 					bw.append(preSQL);
 					bw.append(tableSQL);
