@@ -8,7 +8,7 @@ import java.io.FileWriter;
 
 public class CreateDbsPG {
 	public static void main(String[] a) {
-		run("/Users/eugene/Downloads/knoesis_observations_csv/","/Users/eugene/Downloads/knoesis_pg_load/");
+		run("/Users/eugene/Downloads/knoesis_observations_csv_sorted/","/Users/eugene/Downloads/knoesis_pg_load/");
 	}
 	
 	public static int run(String folderPath, String outputPath) {
@@ -56,7 +56,7 @@ public class CreateDbsPG {
 							"OPTIONS(compression 'pglz')\n" + 
 							";\n";
 					
-					String postSQL = "\\COPY _"+stationName+" FROM '"+folderPath+filename+"' WITH CSV HEADER;\n"; 
+					String postSQL = "\\COPY _"+stationName+" FROM '../knoesis_observations_csv_sorted/"+filename+"' WITH CSV HEADER;\n"; 
 			
 					bw.append(preSQL);
 					bw.append(tableSQL);

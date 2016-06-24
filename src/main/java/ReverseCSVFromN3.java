@@ -21,13 +21,13 @@ import org.joda.time.format.DateTimeFormatter;
 
 
 public class ReverseCSVFromN3 {
+	
+	public static void main(String[] args) {
+		run("/Users/eugene/Downloads/knoesis_observations_rdf_fix/","/Users/eugene/Downloads/knoesis_observations_csv_date/");
+	}
 
 	public static int run(String folderPath, String outputPath) {
-//	public static void main(String[] args) {
-//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_rdf_merged/";
-//		String folderPath = "/Users/eugene/Downloads/knoesis_observations_ike_rdf_merged_nafix/";
-//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_ike_csv/";
-//		String outputPath = "/Users/eugene/Downloads/knoesis_observations_csv/";
+
 		File folder = new File(folderPath);
 		
 		int totalCount = 1;
@@ -113,7 +113,8 @@ public class ReverseCSVFromN3 {
 						String time = soln.getLiteral("time").getValue().toString().replace("^^http://www.w3.org/2001/XMLSchema#dateTime", ""); //theres a mistake storing this as a string instead of datetime in the LSD data
 //						bw.append(time);
 						DateTime dt = new DateTime(time,DateTimeZone.UTC);
-						DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
+//						DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ss");
+						DateTimeFormatter dtf = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
 						bw.append(dt.toString(dtf)); 
 						for(int i=0;i<count;i++) {
 							if(soln.contains("val"+i)) {
