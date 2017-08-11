@@ -36,7 +36,7 @@
 	</dependency>
 	<dependency>
 		<groupId>org.apache.jena</groupId>
-		<artifactId>jena-jdbc-driver-remote</artifactId>
+		<artifactId>jena-jdbc-driver-bundle</artifactId>
 		<version>3.0.0</version>
 	</dependency>
 	<dependency>

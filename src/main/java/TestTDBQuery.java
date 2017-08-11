@@ -12,7 +12,9 @@ import java.sql.Statement;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
+import org.apache.jena.jdbc.mem.MemDriver;
 import org.apache.jena.jdbc.remote.RemoteEndpointDriver;
+import org.apache.jena.jdbc.tdb.TDBDriver;
 
 public class TestTDBQuery {
 	public static void main(String[] args) {
@@ -57,7 +59,13 @@ public class TestTDBQuery {
 //				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_"+listNumber+"_run"+run+".csv"));
 				BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "results_tdb_"+queryName+"_run"+run+".csv"));
 				
-				RemoteEndpointDriver.register();
+				if(jdbcConnection.startsWith("jdbc:jena:mem")) {
+					MemDriver.register();
+				} else if(jdbcConnection.startsWith("jdbc:jena:tdb")) {
+					TDBDriver.register();
+				} else if(jdbcConnection.startsWith("jdbc:jena:remote")) {
+					RemoteEndpointDriver.register();
+				}
 				File folder = new File(folderPath);
 //				String line = "";
 //				while((line=br.readLine())!=null) {
@@ -65,7 +73,7 @@ public class TestTDBQuery {
 					String tempFileName = file.getName();
 					if(tempFileName.startsWith("."))
 						continue;
-					String stationName = tempFileName.replace(".n3", "");
+					String stationName = tempFileName.replace(".n3", "").replace(".nt", "");
 //					String stationName = line.trim();
 					BufferedWriter bwResults = new BufferedWriter(new FileWriter(outputPath + "/results/tdb_"+queryName+"_run"+run+"_"+stationName+".csv"));
 					
